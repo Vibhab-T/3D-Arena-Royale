@@ -20,6 +20,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37625, 0)
 [node name="gun_model" parent="Camera3D" instance=ExtResource("1_2p0nu")]
 transform = Transform3D(-0.250971, 0, 0.0271224, 0, 0.252432, 0, -0.0271224, 0, -0.250971, 0.367139, -0.159427, -0.404753)
 
+[node name="Marker3D" type="Marker3D" parent="Camera3D/gun_model"]
+transform = Transform3D(0.999999, 0, 3.72529e-08, 0, 1, 0, -3.72529e-08, 0, 0.999999, 3.1352e-05, 0.0476685, 0.604994)
+
 [node name="Reticle" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5

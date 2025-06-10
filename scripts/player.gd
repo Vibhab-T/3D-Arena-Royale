@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
+@onready var marker: Marker3D = $Camera3D/gun_model/Marker3D
 @onready var camera: Camera3D = $Camera3D
+const BULLET = preload("res://scenes/bullet_3d.tscn")
 
 const Y_MOUSE_SPEED = 0.2
 const X_MOUSE_SPEED = 0.01
@@ -39,3 +41,14 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("jump") and velocity.y > 0.0:
 		velocity.y = 0.0
 	move_and_slide();
+	
+	if Input.is_action_just_pressed("shoot"):
+		shoot_bullet()
+
+func shoot_bullet():
+	var new_bullet = BULLET.instantiate()
+	marker.add_child(new_bullet)
+	
+	# take position of marker and apply it to bullet
+	new_bullet.global_transform = marker.global_transform
+	
