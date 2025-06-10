@@ -5,6 +5,8 @@ extends CharacterBody3D
 const Y_MOUSE_SPEED = 0.2
 const X_MOUSE_SPEED = 0.01
 const SPEED = 5.5
+const JUMP_SPEED = 10.0
+const GRAV = 20.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #mouse cursor will be captured i.e disappear 
@@ -31,9 +33,9 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direction.x * SPEED
 	velocity.z = direction.z * SPEED
 	
-	velocity.y -= 20.0 * delta
+	velocity.y -= GRAV * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = 10.0
+		velocity.y = JUMP_SPEED
 	elif Input.is_action_just_released("jump") and velocity.y > 0.0:
 		velocity.y = 0.0
 	move_and_slide();
