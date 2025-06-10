@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 const Y_MOUSE_SPEED = 0.2
 const X_MOUSE_SPEED = 0.01
-const SPEED = 5.5
+const SPEED = 9.5
 const JUMP_SPEED = 10.0
 const GRAV = 20.0
 

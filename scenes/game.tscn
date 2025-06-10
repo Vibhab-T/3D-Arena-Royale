@@ -1,0 +1,279 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb6fvef3s8kko"]
+
+[ext_resource type="PackedScene" uid="uid://byhjomu1yrwcq" path="res://scenes/player.tscn" id="1_ooyx7"]
+[ext_resource type="Material" uid="uid://clyh3djqordmi" path="res://materials/platform.tres" id="1_rwdq6"]
+[ext_resource type="Material" uid="uid://d3emf2e8806t2" path="res://materials/bridge.tres" id="2_oha5r"]
+
+[sub_resource type="Environment" id="Environment_pmky1"]
+background_mode = 1
+background_color = Color(0.0231665, 0.391103, 0.320996, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.841436, 0.687797, 0.612172, 1)
+tonemap_mode = 2
+tonemap_exposure = 1.45
+tonemap_white = 4.15
+fog_enabled = true
+fog_light_color = Color(0.0417774, 0.204678, 0.156038, 1)
+fog_height = 1.14
+fog_height_density = 0.55
+adjustment_enabled = true
+
+[node name="Game" type="Node3D"]
+
+[node name="Spawn" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+use_collision = true
+size = Vector3(10, 10, 10)
+material = ExtResource("1_rwdq6")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 37.5719)
+use_collision = true
+size = Vector3(56, 10, 43)
+material = ExtResource("1_rwdq6")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.5, -5, 60.5719)
+use_collision = true
+size = Vector3(27, 10, 29)
+material = ExtResource("1_rwdq6")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.5, -5, -43.4281)
+use_collision = true
+size = Vector3(27, 10, 29)
+material = ExtResource("1_rwdq6")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.5, -5, 54.5719)
+use_collision = true
+size = Vector3(27, 10, 29)
+material = ExtResource("1_rwdq6")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.6, -5, -0.428062)
+use_collision = true
+size = Vector3(56, 10, 43)
+material = ExtResource("1_rwdq6")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.5, -5, -0.428062)
+use_collision = true
+size = Vector3(56, 10, 43)
+material = ExtResource("1_rwdq6")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -37.4734)
+use_collision = true
+size = Vector3(56, 10, 43)
+material = ExtResource("1_rwdq6")
+
+[node name="Player" parent="." instance=ExtResource("1_ooyx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -2.10734e-08, 2.10734e-08, 0, 0.707107, 0.707107, -2.98023e-08, -0.707107, 0.707107, 0, 4, 6)
+light_energy = 1.329
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pmky1")
+
+[node name="Bridges" type="Node" parent="."]
+
+[node name="Bridge" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 13)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge2" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 10)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge7" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3, -0.5, 25.2)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge28" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3, -0.5, 18.2)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge30" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.3, -0.5, 18.2)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge31" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.3, -0.5, 18.2)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge32" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.3, -0.5, 18.2)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge33" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.3, -0.5, 18.2)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge8" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3, -0.5, 28.9)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge9" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3, -0.5, 33.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge10" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3, -0.5, 37.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge11" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.3, -0.5, 41.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge12" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.7, -0.5, 36.8)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge13" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.7, -0.5, 32.8)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge14" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.7, -0.5, 28.8)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge15" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.7, -0.5, 24.8)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge16" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.7, -0.5, -25.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge17" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.7, -0.5, -28.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge18" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.7, -0.5, -31.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge19" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.7, -0.5, -34.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge20" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.7, -0.5, -37.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge21" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.7, -0.5, -40.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge22" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.7, -0.5, -43.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge23" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.7, -0.5, -43.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge24" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -74.7, -0.5, -43.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge25" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42.7, -0.5, -43.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge26" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38.7, -0.5, -43.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge27" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34.7, -0.5, -43.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge29" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30.7, -0.5, -43.1)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge3" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 7)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge4" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -7)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge5" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -10)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
+
+[node name="Bridge6" type="CSGBox3D" parent="Bridges"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -13)
+use_collision = true
+size = Vector3(6, 1, 2)
+material = ExtResource("2_oha5r")
