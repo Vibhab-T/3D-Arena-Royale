@@ -18,7 +18,7 @@ shape = SubResource("CapsuleShape3D_ith6u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37625, 0)
 
 [node name="gun_model" parent="Camera3D" instance=ExtResource("1_2p0nu")]
-transform = Transform3D(-0.250971, 0, 0.0271224, 0, 0.252432, 0, -0.0271224, 0, -0.250971, 0.367139, -0.159427, -0.404753)
+transform = Transform3D(-0.25137, 0, -0.0231375, 0, 0.252432, 0, 0.0231375, 0, -0.25137, 0.367139, -0.159427, -0.404753)
 
 [node name="Marker3D" type="Marker3D" parent="Camera3D/gun_model"]
 transform = Transform3D(0.999999, 0, 3.72529e-08, 0, 1, 0, -3.72529e-08, 0, 0.999999, 3.1352e-05, 0.0476685, 0.604994)
@@ -37,3 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_tajks")
 expand_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

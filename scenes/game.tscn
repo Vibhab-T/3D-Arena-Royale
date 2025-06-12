@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb6fvef3s8kko"]
+[gd_scene load_steps=6 format=3 uid="uid://bb6fvef3s8kko"]
 
 [ext_resource type="PackedScene" uid="uid://byhjomu1yrwcq" path="res://scenes/player.tscn" id="1_ooyx7"]
 [ext_resource type="Material" uid="uid://clyh3djqordmi" path="res://materials/platform.tres" id="1_rwdq6"]
 [ext_resource type="Material" uid="uid://d3emf2e8806t2" path="res://materials/bridge.tres" id="2_oha5r"]
+[ext_resource type="PackedScene" uid="uid://iwrqvrfn71vm" path="res://scenes/bat.tscn" id="4_08sly"]
 
 [sub_resource type="Environment" id="Environment_pmky1"]
 background_mode = 1
@@ -279,3 +280,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, -37.4734)
 use_collision = true
 size = Vector3(56, 60, 43)
 material = ExtResource("1_rwdq6")
+
+[node name="Bat" parent="." instance=ExtResource("4_08sly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.20843, 41)
