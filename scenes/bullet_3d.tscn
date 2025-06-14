@@ -9,6 +9,7 @@ radius = 0.001
 [node name="Bullet3D" type="Area3D"]
 transform = Transform3D(0.0207909, 0, 0.387399, 0, 0.387956, 0, -0.387399, 0, 0.0207909, 0.372663, 1.22593, -0.487783)
 top_level = true
+collision_mask = 3
 script = ExtResource("1_xb6bw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

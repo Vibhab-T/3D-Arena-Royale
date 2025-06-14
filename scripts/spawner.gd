@@ -4,7 +4,11 @@ extends Node3D
 
 @export var Mob_To_Spawn: PackedScene = null
 
+signal mob_spawned(mob)
+
 func _on_timer_timeout() -> void:
 	var new_mob = Mob_To_Spawn.instantiate()
 	add_child(new_mob)
 	new_mob.global_position = marker_3d.global_position
+	
+	mob_spawned.emit(new_mob)

@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://byhjomu1yrwcq"]
+[gd_scene load_steps=6 format=3 uid="uid://byhjomu1yrwcq"]
 
 [ext_resource type="PackedScene" uid="uid://b6a78hqcgie48" path="res://assets/player/simple_gun/gun_model.glb" id="1_2p0nu"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_576ma"]
 [ext_resource type="Texture2D" uid="uid://b310pv4r63ue2" path="res://assets/player/reticle.png" id="3_tajks"]
+[ext_resource type="AudioStream" uid="uid://ey3rl0ypv1h2" path="res://assets/player/gun_shoot.wav" id="4_nlvp1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ith6u"]
 height = 2.05498
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 3
 script = ExtResource("1_576ma")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -39,5 +41,8 @@ texture = ExtResource("3_tajks")
 expand_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nlvp1")

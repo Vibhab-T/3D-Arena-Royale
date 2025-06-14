@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://iwrqvrfn71vm"]
+[gd_scene load_steps=6 format=3 uid="uid://iwrqvrfn71vm"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_48osn"]
 [ext_resource type="PackedScene" uid="uid://dyltq6rowpht2" path="res://scenes/bat_model.tscn" id="1_fndak"]
+[ext_resource type="AudioStream" uid="uid://stl36m6ikvnj" path="res://assets/mob/mob_take_damage.wav" id="3_gxxub"]
+[ext_resource type="AudioStream" uid="uid://bou12i04r6g3t" path="res://assets/mob/mob_ko.wav" id="4_o6ph1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ejibr"]
 radius = 0.35
 
 [node name="Bat" type="RigidBody3D"]
+collision_layer = 2
 gravity_scale = 0.0
 script = ExtResource("1_48osn")
 
@@ -18,5 +21,11 @@ shape = SubResource("SphereShape3D_ejibr")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
+
+[node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_gxxub")
+
+[node name="KOSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_o6ph1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

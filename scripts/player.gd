@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var marker: Marker3D = $Camera3D/gun_model/Marker3D
 @onready var camera: Camera3D = $Camera3D
 @onready var timer: Timer = $Timer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 const BULLET = preload("res://scenes/bullet_3d.tscn")
 
@@ -60,3 +61,5 @@ func shoot_bullet():
 	new_bullet.global_transform = marker.global_transform
 	
 	timer.start()
+	
+	audio_stream_player.play()

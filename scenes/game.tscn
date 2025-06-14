@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb6fvef3s8kko"]
+[gd_scene load_steps=9 format=3 uid="uid://bb6fvef3s8kko"]
 
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_2lybv"]
 [ext_resource type="PackedScene" uid="uid://byhjomu1yrwcq" path="res://scenes/player.tscn" id="1_ooyx7"]
 [ext_resource type="Material" uid="uid://clyh3djqordmi" path="res://materials/platform.tres" id="1_rwdq6"]
 [ext_resource type="Material" uid="uid://d3emf2e8806t2" path="res://materials/bridge.tres" id="2_oha5r"]
@@ -7,19 +8,31 @@
 
 [sub_resource type="Environment" id="Environment_pmky1"]
 background_mode = 1
-background_color = Color(0.0231665, 0.391103, 0.320996, 1)
+background_color = Color(0.398614, 0.825433, 0.949014, 1)
 ambient_light_source = 2
-ambient_light_color = Color(0.841436, 0.687797, 0.612172, 1)
+ambient_light_color = Color(1, 1, 1, 1)
 tonemap_mode = 2
 tonemap_exposure = 1.45
 tonemap_white = 4.15
 fog_enabled = true
-fog_light_color = Color(0.0115418, 0.195091, 0.244395, 1)
+fog_light_color = Color(0.159969, 0.0494466, 0.0396833, 1)
+fog_light_energy = 0.8
+fog_sky_affect = 0.055
 fog_height = 1.14
 fog_height_density = 0.55
 adjustment_enabled = true
 
+[sub_resource type="LabelSettings" id="LabelSettings_y2a8t"]
+font_size = 56
+font_color = Color(0.764843, 0.664369, 0.611724, 1)
+outline_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+shadow_size = 10
+shadow_color = Color(0.245125, 0.0146353, 0.0977722, 0.890196)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w150m"]
+
 [node name="Game" type="Node3D"]
+script = ExtResource("1_2lybv")
 
 [node name="Spawn" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -33,6 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.965926, -0.183013, 0.183013, 0, 0.707107, 0.707107, -0.258819, -0.683013, 0.683013, 8, 130, 138)
 light_color = Color(0.727342, 0.755292, 0.104892, 1)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pmky1")
@@ -281,5 +295,26 @@ use_collision = true
 size = Vector3(56, 60, 43)
 material = ExtResource("1_rwdq6")
 
-[node name="Spawner" parent="." instance=ExtResource("4_44gci")]
+[node name="Spawners" type="Node" parent="."]
+
+[node name="Spawner" parent="Spawners" instance=ExtResource("4_44gci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40.5404)
+
+[node name="Spawner2" parent="Spawners" instance=ExtResource("4_44gci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.821, 1.08333, 61.5404)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 230.0
+offset_bottom = 60.0
+text = " Score: "
+label_settings = SubResource("LabelSettings_y2a8t")
+
+[node name="KillPlane" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.2042, 0)
+shape = SubResource("WorldBoundaryShape3D_w150m")
+
+[connection signal="mob_spawned" from="Spawners/Spawner" to="." method="_on_spawner_mob_spawned"]
+[connection signal="mob_spawned" from="Spawners/Spawner2" to="." method="_on_spawner_mob_spawned"]
+[connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
